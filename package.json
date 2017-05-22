@@ -20,6 +20,7 @@
     "gulp-cli": "^1.2.1",
     "gulp-concat": "^2.5.2",
     "gulp-extname": "^0.2.0",
+    "gulp-filter": "^4.0.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.2.1",
     "gulp-load-plugins": "^1.1.0",

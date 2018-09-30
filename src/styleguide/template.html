@@ -131,5 +131,33 @@
     </div>
 
     <script src="assets/js/app.js"></script>
+<script type="text/javascript">
+$(function() {
+    var colorCodes = [];
+    $("[data-color-block]").each(function() {
+        var code = rgbToHex($(this).css("background-color"));
+        var name = $(this).data("color-block");
+        colorCodes[name] = code;
+    });
+    $("[data-color-block-name]").each(function() {
+        var name = $(this).data("color-block-name");
+        if (name in colorCodes) {
+            $(this).html(colorCodes[name]);
+        }
+
+    });
+});
+function rgbToHex(rgbString){
+    var parts = rgbString.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    // parts now should be ["rgb(0, 70, 255", "0", "70", "255"]
+    delete (parts[0]);
+    for (var i = 1; i <= 3; ++i) {
+        parts[i] = parseInt(parts[i]).toString(16);
+        if (parts[i].length == 1) parts[i] = '0' + parts[i];
+    }
+    var hexString ='#'+parts.join('').toUpperCase();
+    return hexString;
+}
+</script>
   </body>
 </html>
